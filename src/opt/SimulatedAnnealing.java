@@ -58,7 +58,8 @@ public class SimulatedAnnealing extends OptimizationAlgorithm {
             cur = neigh;
         }
         t *= cooling;
-        return curVal;
+        // error is 1/fitness
+        return valueToError(curVal);
     }
 
     /**
@@ -66,6 +67,14 @@ public class SimulatedAnnealing extends OptimizationAlgorithm {
      */
     public Instance getOptimal() {
         return cur;
+    }
+
+    public double getTemperature() {
+        return t;
+    }
+
+    public double valueToError(double value) {
+        return 1 / value;
     }
 
 }
