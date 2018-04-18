@@ -92,6 +92,9 @@ public class QLambda implements PolicyLearner {
      */
     public double train() {
         int nextState = process.sampleState(state, action);
+
+        System.out.println("QLambda.train(): nextState=" + nextState);
+
         double reward = process.reward(nextState, action);
         totalReward += reward;
         int nextAction = strategy.action(values[nextState]);

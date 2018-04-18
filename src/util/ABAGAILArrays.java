@@ -257,7 +257,7 @@ public class ABAGAILArrays {
      * of the cloest value greater than it
      */
     public static int search(double[] a, double v) {
-        int high = a.length;
+        int high = a.length-1;
         int low = -1;
         while (high - low > 1) {
             int mid = (high + low) / 2;

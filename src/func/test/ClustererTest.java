@@ -1,5 +1,3 @@
-package func.test;
-
 import dist.AbstractConditionalDistribution;
 import dist.Distribution;
 import dist.MultivariateGaussian;
@@ -34,7 +32,7 @@ public class ClustererTest {
      * @param args ignored
      */
     public static void main(String[] args) throws Exception {
-        String dataFile = new File("").getAbsolutePath() + "/src/shared/test/banana.arff";
+        String dataFile = new File("").getAbsolutePath() + "/save_borrow_vs_ir.arff";
         int k = 2;
         boolean useEM = false;
         boolean writeToFile = false;

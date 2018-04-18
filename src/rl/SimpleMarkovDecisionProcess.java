@@ -15,6 +15,24 @@ import dist.hmm.StateDistribution;
  * @version 1.0
  */
 public class SimpleMarkovDecisionProcess extends ModularHiddenMarkovModel implements MarkovDecisionProcess {
+    private boolean[] _terminalStates;
+
+    public SimpleMarkovDecisionProcess(int stateCount) {
+        super(stateCount);
+        _terminalStates = new boolean[stateCount];
+    }
+
+    public SimpleMarkovDecisionProcess() {
+        super();
+    }
+
+    public void setTerminal(int state, boolean isTerminal) {
+        _terminalStates[state] = isTerminal;
+    }
+
+    public void setTerminals(boolean[] states) {
+        _terminalStates = states.clone();
+    }
     /**
      * Set the reward values
      * @param rewardValues the reward values
@@ -93,6 +111,7 @@ public class SimpleMarkovDecisionProcess extends ModularHiddenMarkovModel implem
      * @return the next state
      */
     public int sampleState(int i, int a) {
+        System.out.println("SampleStaet: i=" + i + ", a=" + a);
         return getTransitionDistributions()[i].generateRandomState(new Instance(a));
     }
     
@@ -126,6 +145,9 @@ public class SimpleMarkovDecisionProcess extends ModularHiddenMarkovModel implem
      * @see rl.MarkovDecisionProcess#isTerminalState(int)
      */
     public boolean isTerminalState(int state) {
-        return false;
+        if(_terminalStates == null) {
+            return(false);
+        }
+        return(_terminalStates[state]);
     }
 }

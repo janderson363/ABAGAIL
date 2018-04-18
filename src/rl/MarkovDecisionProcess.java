@@ -53,4 +53,6 @@ public interface MarkovDecisionProcess {
      * @return true if it is
      */
     public abstract boolean isTerminalState(int state);
+    public abstract void setTerminal(int state, boolean isTerminal);
+    public abstract void setTerminals(boolean[] states);
 }
