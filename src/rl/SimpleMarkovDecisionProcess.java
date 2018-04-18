@@ -111,7 +111,6 @@ public class SimpleMarkovDecisionProcess extends ModularHiddenMarkovModel implem
      * @return the next state
      */
     public int sampleState(int i, int a) {
-        System.out.println("SampleStaet: i=" + i + ", a=" + a);
         return getTransitionDistributions()[i].generateRandomState(new Instance(a));
     }
     
